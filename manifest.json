@@ -2,25 +2,15 @@
   "manifest_version": 3,
   "name": "FillJob",
   "version": "1.0",
-  "description": "This extension autofills forms lightning fast.",
+  "description": "Mi extensión para FillJob",
   "icons": {
-    "48": "filljob-logo.png"
+    "48": "assets/filljob-logo.png"
   },
   "action": {
-    "default_popup": "popup.html"
+    "default_popup": "popup/popup.html"
   },
   "permissions": [
-    "activeTab",
-    "scripting",
-    "storage"
-  ],
-  "background": {
-    "service_worker": "background.js"
-  },
-  "content_scripts": [
-    {
-      "matches": ["<all_urls>"],
-      "js": ["content.js"]
-    }
+    "storage",
+    "activeTab"
   ]
 }

@@ -1,0 +1,100 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>FillJob</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      background-color: #162B45; /* Color oscuro de fondo */
+      margin: 0;
+      padding: 0;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      height: 100vh;
+    }
+
+    .container {
+      background-color: #fff;
+      padding: 40px; /* Aumentado el padding */
+      width: 100%;
+      max-width: 450px; /* Aumentado el ancho máximo */
+      box-shadow: 0 4px 12px rgba(0, 0, 0, 0.3); /* Sombra más intensa */
+      border-radius: 12px;
+      text-align: center;
+      color: #333;
+    }
+
+    h1 {
+      font-size: 1.8em; /* Tamaño de fuente más grande */
+      margin-bottom: 20px;
+      color: #007BFF;
+    }
+
+    p {
+      font-size: 1.3em; /* Aumentado el tamaño de la fuente */
+      margin-bottom: 25px;
+      color: #333;
+    }
+
+    button {
+      width: 100%;
+      margin-bottom: 20px;
+      padding: 15px; /* Aumentado el padding para botones más grandes */
+      font-size: 1.2em; /* Aumentado el tamaño de la fuente */
+      border: none;
+      border-radius: 6px;
+      cursor: pointer;
+      transition: background-color 0.3s ease, transform 0.2s ease;
+    }
+
+    #fillForm {
+      background-color: #28a745;
+      color: white;
+    }
+
+    #openPage {
+      background-color: #007BFF;
+      color: white;
+    }
+
+    button:hover {
+      background-color: #0056b3;
+      transform: scale(1.05);
+    }
+
+    /* Responsividad para pantallas pequeñas */
+    @media (max-width: 400px) {
+      .container {
+        max-width: 100%;
+        padding: 20px; /* Ajustado para pantallas pequeñas */
+      }
+
+      button {
+        padding: 12px;
+        font-size: 1em;
+      }
+
+      h1 {
+        font-size: 1.5em;
+      }
+
+      p {
+        font-size: 1.1em;
+      }
+    }
+  </style>
+</head>
+<body>
+  <div class="container">
+    <h1>FillJob</h1>
+    <p>FillJob te da la bienvenida, ¿qué quieres realizar?</p>
+    <button id="fillForm">Autocompletar Formulario</button>
+    <button id="openPage">Abrir Página</button>
+  </div>
+
+  <script src="popup.js"></script>
+</body>
+</html>

@@ -1,0 +1,253 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>FillJob</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      background-color: #001832; /* Fondo azul más oscuro */
+      color: #333;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      height: 100vh;
+      margin: 0;
+    }
+
+    .header {
+      position: absolute;
+      top: 10px;
+      right: 20px;
+    }
+
+    .language-selector {
+      background-color: #fff;
+      padding: 5px;
+      border-radius: 5px;
+      font-size: 1em;
+      border: 1px solid #ccc;
+    }
+
+    .logo {
+      margin-bottom: 20px;
+      width: 200px; /* Aumentar el tamaño del logo */
+    }
+
+    .container {
+      background-color: #fff;
+      padding: 30px;
+      border-radius: 10px;
+      box-shadow: 0 0 15px rgba(0, 0, 0, 0.2);
+      width: 100%;
+      max-width: 500px;
+      box-sizing: border-box;
+    }
+
+    label {
+      font-weight: bold;
+      margin-top: 10px;
+      display: block;
+    }
+
+    input[type="text"], input[type="email"], input[type="tel"], select, input[type="date"] {
+      width: 100%;
+      padding: 10px;
+      margin-top: 5px;
+      margin-bottom: 15px;
+      border: 1px solid #ccc;
+      border-radius: 5px;
+      font-size: 1em;
+      box-sizing: border-box;
+      transition: all 0.3s ease;
+    }
+
+    /* Estilo cuando el campo está vacío */
+    input[type="text"]:placeholder-shown, 
+    input[type="email"]:placeholder-shown, 
+    input[type="tel"]:placeholder-shown, 
+    select:placeholder-shown, 
+    input[type="date"]:placeholder-shown {
+      border-color: #FF6347; /* Borde color rojo claro (Tomate) */
+      background-color: #fff5f5; /* Fondo suave rojo claro */
+    }
+
+    /* Animación suave */
+    input[type="text"], 
+    input[type="email"], 
+    input[type="tel"], 
+    select, 
+    input[type="date"] {
+      transition: transform 0.3s ease, box-shadow 0.3s ease, border-color 0.3s ease;
+    }
+
+    /* Estilo cuando el campo está en hover */
+    input[type="text"]:hover, 
+    input[type="email"]:hover, 
+    input[type="tel"]:hover, 
+    select:hover, 
+    input[type="date"]:hover {
+      transform: scale(1.05); /* Agrandar un poco la caja */
+      box-shadow: 0 0 12px rgba(0, 123, 255, 0.4); /* Añadir un brillo suave */
+      border-color: #007BFF; /* Color del borde */
+    }
+
+    input[type="submit"] {
+      width: 100%;
+      padding: 10px;
+      background-color: #007BFF;
+      color: #fff;
+      border: none;
+      border-radius: 5px;
+      font-size: 1em;
+      cursor: pointer;
+      box-sizing: border-box;
+      transition: background-color 0.3s ease;
+    }
+
+    input[type="submit"]:hover {
+      background-color: #0056b3;
+    }
+
+    .required {
+      color: red;
+    }
+
+    .hidden {
+      display: none;
+    }
+
+    @media screen and (max-width: 768px) {
+      .container {
+        padding: 20px;
+        max-width: 100%;
+        margin: 0 15px;
+      }
+
+      .logo {
+        width: 150px; /* Ajustar el tamaño del logo para pantallas más pequeñas */
+      }
+
+      input[type="text"], input[type="email"], input[type="tel"], select, input[type="date"] {
+        font-size: 0.9em;
+      }
+
+      input[type="submit"] {
+        font-size: 0.9em;
+      }
+
+      .header {
+        top: 5px;
+        right: 10px;
+      }
+    }
+
+    @media screen and (max-width: 480px) {
+      body {
+        padding: 10px;
+        height: auto;
+      }
+
+      .container {
+        padding: 15px;
+        margin: 0 10px;
+      }
+
+      .logo {
+        width: 120px; /* Ajustar el tamaño del logo para pantallas muy pequeñas */
+      }
+
+      input[type="text"], input[type="email"], input[type="tel"], select, input[type="date"] {
+        font-size: 0.8em;
+      }
+
+      input[type="submit"] {
+        font-size: 0.8em;
+        padding: 8px;
+      }
+
+      .header {
+        top: 5px;
+        right: 5px;
+      }
+
+      label {
+        font-size: 0.9em;
+      }
+    }
+  </style>
+</head>
+<body>
+  <div class="header">
+    <label for="language" class="language-label">Seleccionar idioma:</label>
+    <select id="language" class="language-selector">
+      <option value="es">Español</option>
+      <option value="en">Inglés</option>
+    </select>
+  </div>
+
+  <img src="/assets/filljob-logo.png" alt="FillJob Logo" class="logo">
+
+  <div class="container">
+    <form id="form">
+      <label for="firstName">Nombre <span class="required">*</span></label>
+      <input type="text" id="firstName" placeholder="Ej: José Manuel" required>
+
+      <label for="lastName">Apellidos <span class="required">*</span></label>
+      <input type="text" id="lastName" placeholder="Ej: Ramírez Castañeda" required>
+
+      <label for="email">Correo electrónico <span class="required">*</span></label>
+      <input type="email" id="email" placeholder="Ej: jmanuel123@gmail.com" required>
+
+      <label for="phone">Número de teléfono</label>
+      <input type="tel" id="phone" placeholder="Ej: 3112224444">
+
+      <label for="platform">Plataforma desde la cual desea trabajar:</label>
+      <select id="platform">
+        <option value="">Seleccione una opción</option>
+        <option value="LinkedIn">LinkedIn</option>
+        <option value="Magneto">Magneto</option>
+      </select>
+
+      <!-- Campos adicionales para LinkedIn -->
+      <div id="linkedinFields" class="hidden">
+        <label for="experienciaLaboral">Experiencia Laboral</label>
+        <input type="text" id="experienciaLaboral" placeholder="Descripción de experiencia laboral">
+
+        <label for="educacion">Educación</label>
+        <input type="text" id="educacion" placeholder="Información educativa">
+
+        <label for="idiomas">Idiomas</label>
+        <input type="text" id="idiomas" placeholder="Idiomas que habla">
+
+        <label for="resumenProfesional">Resumen Profesional</label>
+        <input type="text" id="resumenProfesional" placeholder="Breve resumen profesional">
+      </div>
+
+      <!-- Campos adicionales para Magneto -->
+      <div id="magnetoFields" class="hidden">
+        <label for="fechaDeNacimiento">Fecha de Nacimiento</label>
+        <input type="date" id="fechaDeNacimiento">
+
+        <label for="direccionDeResidencia">Dirección de Residencia</label>
+        <input type="text" id="direccionDeResidencia" placeholder="Dirección completa">
+
+        <label for="estadoCivil">Estado Civil</label>
+        <input type="text" id="estadoCivil" placeholder="Estado civil actual">
+
+        <label for="pretensionSalarial">Pretensión Salarial</label>
+        <input type="text" id="pretensionSalarial" placeholder="Pretensión salarial">
+
+        <label for="referenciasLaborales">Referencias Laborales</label>
+        <input type="text" id="referenciasLaborales" placeholder="Referencias laborales">
+      </div>
+
+      <input type="submit" value="ENVIAR">
+    </form>
+  </div>
+
+  <script src="page.js"></script>
+</body>
+</html>
